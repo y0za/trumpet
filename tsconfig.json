@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noUnusedLocals" : true,
+    "target": "es2017",
+    "module": "es2015",
+    "noImplicitAny": true,
+    "lib": [
+      "dom",
+      "es2017"
+    ],
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "outDir": "./dist/",
+    "jsx": "react-native"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "index.android.js",
+    "index.ios.js"
+  ]
+}
