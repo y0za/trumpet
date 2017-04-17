@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 export class App extends React.Component<{}, {}> {
-  render() {
+  render(): JSX.Element {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
