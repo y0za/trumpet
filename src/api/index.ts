@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 interface Config {
   headers: any;
@@ -38,27 +38,27 @@ class Api {
     return Promise.resolve(accessToken);
   }
 
-  get(path: string, config?: Object): Promise<Object> {
+  get(path: string, config?: Object): Promise<AxiosResponse> {
     return axios.get(path, Object.assign({}, this.baseConfig, config));
   }
 
-  delete(path: string, config?: Object): Promise<Object> {
+  delete(path: string, config?: Object): Promise<AxiosResponse> {
     return axios.delete(path, Object.assign({}, this.baseConfig, config));
   }
 
-  head(path: string, config?: Object): Promise<Object> {
+  head(path: string, config?: Object): Promise<AxiosResponse> {
     return axios.head(path, Object.assign({}, this.baseConfig, config));
   }
 
-  post(path: string, data: Object, config?: Object): Promise<Object> {
+  post(path: string, data: Object, config?: Object): Promise<AxiosResponse> {
     return axios.post(path, Object.assign({}, this.baseConfig, config));
   }
 
-  put(path: string, data: Object, config?: Object): Promise<Object> {
+  put(path: string, data: Object, config?: Object): Promise<AxiosResponse> {
     return axios.put(path, Object.assign({}, this.baseConfig, config));
   }
 
-  patch(path: string, data: Object, config?: Object): Promise<Object> {
+  patch(path: string, data: Object, config?: Object): Promise<AxiosResponse> {
     return axios.patch(path, Object.assign({}, this.baseConfig, config));
   }
 }
