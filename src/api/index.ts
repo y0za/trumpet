@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-class Api {
+export class Api {
   private clientId: string;
   private clientSecret: string;
   private baseConfig: AxiosRequestConfig;
