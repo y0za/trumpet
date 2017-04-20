@@ -50,15 +50,15 @@ class Api {
     return axios.head(path, Object.assign({}, this.baseConfig, config));
   }
 
-  post(path: string, data: Object, config?: Object): Promise<AxiosResponse> {
-    return axios.post(path, Object.assign({}, this.baseConfig, config));
+  post(path: string, data: any, config?: Object): Promise<AxiosResponse> {
+    return axios.post(path, data, Object.assign({}, this.baseConfig, config));
   }
 
-  put(path: string, data: Object, config?: Object): Promise<AxiosResponse> {
-    return axios.put(path, Object.assign({}, this.baseConfig, config));
+  put(path: string, data: any, config?: Object): Promise<AxiosResponse> {
+    return axios.put(path, data, Object.assign({}, this.baseConfig, config));
   }
 
-  patch(path: string, data: Object, config?: Object): Promise<AxiosResponse> {
-    return axios.patch(path, Object.assign({}, this.baseConfig, config));
+  patch(path: string, data: any, config?: Object): Promise<AxiosResponse> {
+    return axios.patch(path, data, Object.assign({}, this.baseConfig, config));
   }
 }
