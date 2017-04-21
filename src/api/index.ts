@@ -60,3 +60,11 @@ export class Api {
     return this.client.patch(path, data, Object.assign({}, this.baseConfig, config));
   }
 }
+
+export interface Request {
+  (path: string, config?: AxiosRequestConfig): Promise<AxiosResponse>;
+}
+
+export interface RequestWithData {
+  (path: string, data: any, config?: AxiosRequestConfig): Promise<AxiosResponse>;
+}
