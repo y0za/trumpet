@@ -15,3 +15,10 @@ export interface Account {
   header: string;
   header_static: string;
 }
+
+export interface Profile {
+  display_name?: string;
+  note?: string;
+  avatar?: string;
+  header?: string;
+}
