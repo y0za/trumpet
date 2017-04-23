@@ -68,3 +68,9 @@ export interface Request {
 export interface RequestWithData {
   (path: string, data: any, config?: AxiosRequestConfig): Promise<AxiosResponse>;
 }
+
+export interface RangeParams {
+  max_id?: number;
+  since_id?: number;
+  limit?: number;
+}
