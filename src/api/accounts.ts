@@ -1,5 +1,5 @@
-import { Request, RequestWithData, RangeParams } from './index';
-import { Account, Profile } from './entities';
+import { Request, RequestWithData, RangeParams, StatusesParams } from './index';
+import { Account, Profile, Status } from './entities';
 
 export function getAccount(get: Request, id: number): Promise<Account> {
   return get(`/api/v1/accounts/${id}`).then((response) => {
@@ -28,5 +28,11 @@ export function getAccountFollowers(get: Request, id: number, params?: RangePara
 export function getAccountFollowing(get: Request, id: number, params?: RangeParams): Promise<Account[]> {
   return get(`/api/v1/accounts/${id}/following`, { params }).then((response) => {
     return response.data as Account[]
+  })
+}
+
+export function getAccountStatuses(get: Request, id: number, params?: StatusesParams): Promise<Status[]> {
+  return get(`/api/v1/accounts/${id}/statuses`, { params }).then((response) => {
+    return response.data as Status[]
   })
 }
