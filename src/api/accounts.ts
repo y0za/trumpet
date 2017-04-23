@@ -24,3 +24,9 @@ export function getAccountFollowers(get: Request, id: number, params?: RangePara
     return response.data as Account[]
   })
 }
+
+export function getAccountFollowing(get: Request, id: number, params?: RangeParams): Promise<Account[]> {
+  return get(`/api/v1/accounts/${id}/following`, { params }).then((response) => {
+    return response.data as Account[]
+  })
+}
