@@ -66,3 +66,9 @@ export function muteAccount(post: RequestWithData, id: number): Promise<Relation
     return response.data as Relationship
   })
 }
+
+export function unmuteAccount(post: RequestWithData, id: number): Promise<Relationship> {
+  return post(`/api/v1/accounts/${id}/unmute`).then((response) => {
+    return response.data as Relationship
+  })
+}
