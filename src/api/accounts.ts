@@ -48,3 +48,9 @@ export function unfollowAccount(post: RequestWithData, id: number): Promise<Rela
     return response.data as Relationship
   })
 }
+
+export function blockAccount(post: RequestWithData, id: number): Promise<Relationship> {
+  return post(`/api/v1/accounts/${id}/block`).then((response) => {
+    return response.data as Relationship
+  })
+}
