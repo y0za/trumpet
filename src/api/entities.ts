@@ -44,6 +44,15 @@ export interface Profile {
   header?: string;
 }
 
+export interface Relationship {
+  id: number;
+  following: boolean;
+  followed_by: boolean;
+  blocking: boolean;
+  muting: boolean;
+  requested: boolean;
+}
+
 export interface Status {
   id: number;
   uri: string;
