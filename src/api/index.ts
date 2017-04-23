@@ -48,15 +48,15 @@ export class Api {
     return this.client.head(path, Object.assign({}, this.baseConfig, config));
   }
 
-  post(path: string, data: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  post(path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
     return this.client.post(path, data, Object.assign({}, this.baseConfig, config));
   }
 
-  put(path: string, data: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  put(path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
     return this.client.put(path, data, Object.assign({}, this.baseConfig, config));
   }
 
-  patch(path: string, data: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  patch(path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
     return this.client.patch(path, data, Object.assign({}, this.baseConfig, config));
   }
 }
@@ -66,7 +66,7 @@ export interface Request {
 }
 
 export interface RequestWithData {
-  (path: string, data: any, config?: AxiosRequestConfig): Promise<AxiosResponse>;
+  (path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse>;
 }
 
 export interface RangeParams {
