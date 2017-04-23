@@ -60,3 +60,9 @@ export function unblockAccount(post: RequestWithData, id: number): Promise<Relat
     return response.data as Relationship
   })
 }
+
+export function muteAccount(post: RequestWithData, id: number): Promise<Relationship> {
+  return post(`/api/v1/accounts/${id}/mute`).then((response) => {
+    return response.data as Relationship
+  })
+}
