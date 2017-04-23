@@ -54,3 +54,9 @@ export function blockAccount(post: RequestWithData, id: number): Promise<Relatio
     return response.data as Relationship
   })
 }
+
+export function unblockAccount(post: RequestWithData, id: number): Promise<Relationship> {
+  return post(`/api/v1/accounts/${id}/unblock`).then((response) => {
+    return response.data as Relationship
+  })
+}
