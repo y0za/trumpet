@@ -42,3 +42,9 @@ export function followAccount(post: RequestWithData, id: number): Promise<Relati
     return response.data as Relationship
   })
 }
+
+export function unfollowAccount(post: RequestWithData, id: number): Promise<Relationship> {
+  return post(`/api/v1/accounts/${id}/unfollow`).then((response) => {
+    return response.data as Relationship
+  })
+}
