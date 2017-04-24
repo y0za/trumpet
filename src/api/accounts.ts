@@ -1,5 +1,6 @@
-import { Request, RequestWithData, RangeParams, StatusesParams } from './index';
+import { Request, RequestWithData } from './index';
 import { Account, Profile, Relationship, Status } from './entities';
+import { RangeParams, RelationshipsParams, StatusesParams } from './params'
 
 export function getAccount(get: Request, id: number): Promise<Account> {
   return get(`/api/v1/accounts/${id}`).then((response) => {
@@ -70,5 +71,11 @@ export function muteAccount(post: RequestWithData, id: number): Promise<Relation
 export function unmuteAccount(post: RequestWithData, id: number): Promise<Relationship> {
   return post(`/api/v1/accounts/${id}/unmute`).then((response) => {
     return response.data as Relationship
+  })
+}
+
+export function getAccountRelationships(get: Request, params?: RelationshipsParams): Promise<Relationship[]> {
+  return get(`/api/v1/accounts/relationships`, { params }).then((response) => {
+    return response.data as Relationship[]
   })
 }
