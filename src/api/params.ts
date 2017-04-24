@@ -4,7 +4,7 @@ export interface RangeParams {
   limit?: number;
 }
 
-export interface RelationshipsParams extends RangeParams {
+export interface RelationshipsParams {
   id?: number | number[];
 }
 
