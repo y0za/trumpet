@@ -1,4 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
+import * as e from './entities';
+import * as p from './params';
+import * as accounts from './accounts'
 
 export class Api {
   private clientId: string;
@@ -58,6 +61,62 @@ export class Api {
 
   patch(path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
     return this.client.patch(path, data, Object.assign({}, this.baseConfig, config));
+  }
+
+  getAccount(id: number): Promise<e.Account> {
+    return accounts.getAccount(this.get, id)
+  }
+
+  getCurrentUser(): Promise<e.Account> {
+    return accounts.getCurrentUser(this.get)
+  }
+
+  updateCurrentUser(profile: e.Profile): Promise<e.Account> {
+    return accounts.updateCurrentUser(this.patch, profile)
+  }
+
+  getAccountFollowers(id: number, params?: p.RangeParams): Promise<e.Account[]> {
+    return accounts.getAccountFollowers(this.get, id, params)
+  }
+
+  getAccountFollowing(id: number, params?: p.RangeParams): Promise<e.Account[]> {
+    return accounts.getAccountFollowing(this.get, id, params)
+  }
+
+  getAccountStatuses(id: number, params?: p.StatusesParams): Promise<e.Status[]> {
+    return accounts.getAccountStatuses(this.get, id, params)
+  }
+
+  followAccount(id: number): Promise<e.Relationship> {
+    return accounts.followAccount(this.post, id)
+  }
+
+  unfollowAccount(id: number): Promise<e.Relationship> {
+    return accounts.unfollowAccount(this.post, id)
+  }
+
+  blockAccount(id: number): Promise<e.Relationship> {
+    return accounts.blockAccount(this.post, id)
+  }
+
+  unblockAccount(id: number): Promise<e.Relationship> {
+    return accounts.blockAccount(this.post, id)
+  }
+
+  muteAccount(id: number): Promise<e.Relationship> {
+    return accounts.muteAccount(this.post, id)
+  }
+
+  unmuteAccount(id: number): Promise<e.Relationship> {
+    return accounts.unmuteAccount(this.post, id)
+  }
+
+  getAccountRelationships(params?: p.RelationshipsParams): Promise<e.Relationship[]> {
+    return accounts.getAccountRelationships(this.get, params)
+  }
+
+  searchAccounts(params?: p.SearchAccountsParams): Promise<e.Account[]> {
+    return accounts.searchAccounts(this.get, params)
   }
 }
 
