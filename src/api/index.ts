@@ -39,27 +39,27 @@ export class Api {
     return Promise.resolve(accessToken);
   }
 
-  get(path: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  get = (path: string, config?: AxiosRequestConfig): Promise<AxiosResponse> => {
     return this.client.get(path, Object.assign({}, this.baseConfig, config));
   }
 
-  delete(path: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  delete = (path: string, config?: AxiosRequestConfig): Promise<AxiosResponse> => {
     return this.client.delete(path, Object.assign({}, this.baseConfig, config));
   }
 
-  head(path: string, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  head = (path: string, config?: AxiosRequestConfig): Promise<AxiosResponse> => {
     return this.client.head(path, Object.assign({}, this.baseConfig, config));
   }
 
-  post(path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  post = (path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> => {
     return this.client.post(path, data, Object.assign({}, this.baseConfig, config));
   }
 
-  put(path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  put = (path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> => {
     return this.client.put(path, data, Object.assign({}, this.baseConfig, config));
   }
 
-  patch(path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> {
+  patch = (path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse> => {
     return this.client.patch(path, data, Object.assign({}, this.baseConfig, config));
   }
 
