@@ -4,14 +4,10 @@ import * as p from './params';
 import * as accounts from './accounts'
 
 export class Api {
-  private clientId: string;
-  private clientSecret: string;
   private baseConfig: AxiosRequestConfig;
   private client: AxiosInstance;
 
-  constructor(baseUrl: string, clientId: string, clientSecret: string) {
-    this.clientId = clientId;
-    this.clientSecret = clientSecret;
+  constructor(baseUrl: string) {
     this.baseConfig = {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -22,10 +18,10 @@ export class Api {
     this.client = axios.create(this.baseConfig)
   }
 
-  async authenticate(username: string, password: string): Promise<string> {
+  async authenticate(clientId: string, clientSecret: string, username: string, password: string): Promise<string> {
     const response = await this.client.post('/oauth/token', {
-      'client_id': this.clientId,
-      'client_secret': this.clientSecret,
+      'client_id': clientId,
+      'client_secret': clientSecret,
       'grant_type': 'password',
       'username': username,
       'password': password,
@@ -37,6 +33,11 @@ export class Api {
     this.client = axios.create(this.baseConfig);
 
     return Promise.resolve(accessToken);
+  }
+
+  setAccessToken(accessToken: string): void {
+    this.baseConfig.headers['Authorization'] = `Bearer ${accessToken}`;
+    this.client = axios.create(this.baseConfig);
   }
 
   get = (path: string, config?: AxiosRequestConfig): Promise<AxiosResponse> => {
