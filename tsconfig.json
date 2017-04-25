@@ -18,6 +18,7 @@
     "node_modules",
     "dist",
     "index.android.js",
-    "index.ios.js"
+    "index.ios.js",
+    "__tests__"
   ]
 }
