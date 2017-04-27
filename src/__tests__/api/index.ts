@@ -1,10 +1,11 @@
-import { Api } from '../../src/api'
+import { Api } from '../../api'
 
 describe('Api class', () => {
-  let api = new Api();
+  const baseUrl = 'http://localhost'
+  let api = new Api(baseUrl);
 
   beforeEach(() => {
-    api = new Api();
+    api = new Api(baseUrl);
   });
 
   test('setAccessToken set Authorization HTTP header', () => {

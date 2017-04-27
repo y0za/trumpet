@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start --skipflow",
-    "test": "jest",
+    "test": "yarn build && jest",
     "build": "tsc",
     "build:watch": "tsc --watch"
   },
   "jest": {
-    "preset": "jest-preset-typescript-react-native"
+    "preset": "react-native",
+    "testRegex": "dist/__tests__/.*.jsx?$"
   },
   "dependencies": {
     "react": "16.0.0-alpha.6",
