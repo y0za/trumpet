@@ -49,13 +49,6 @@ export interface Mention {
   id: number;
 }
 
-export interface Profile {
-  display_name?: string;
-  note?: string;
-  avatar?: string;
-  header?: string;
-}
-
 export interface Relationship {
   id: number;
   following: boolean;

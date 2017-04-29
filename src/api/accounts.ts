@@ -1,6 +1,7 @@
 import { Request, RequestWithData } from './index';
-import { Account, Profile, Relationship, Status } from './entities';
+import { Account, Relationship, Status } from './entities';
 import { RangeParams, RelationshipsParams, SearchAccountsParams, StatusesParams } from './params';
+import { Profile } from './form-data';
 
 export function getAccount(get: Request, id: number): Promise<Account> {
   return get(`/api/v1/accounts/${id}`).then((response) => {

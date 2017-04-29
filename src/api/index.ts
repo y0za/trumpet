@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
 import * as e from './entities';
 import * as p from './params';
+import * as fd from './form-data'
 import * as accounts from './accounts'
 
 export class Api {
@@ -72,7 +73,7 @@ export class Api {
     return accounts.getCurrentUser(this.get)
   }
 
-  updateCurrentUser(profile: e.Profile): Promise<e.Account> {
+  updateCurrentUser(profile: fd.Profile): Promise<e.Account> {
     return accounts.updateCurrentUser(this.patch, profile)
   }
 
