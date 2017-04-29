@@ -85,3 +85,11 @@ export function getTimelinePublic(get: Request, params?: TimelineParams): Promis
     return response.data as Status[];
   });
 }
+
+export function getTimelineHashtag(get: Request, tag: string, params?: TimelineParams): Promise<Status[]> {
+  const escapedTag = encodeURIComponent(tag);
+  const realParams = convertTimelineParams(params);
+  return get(`/api/v1/statuses/timelines/tag/${escapedTag}`, { params: realParams }).then((response) => {
+    return response.data as Status[];
+  });
+}
