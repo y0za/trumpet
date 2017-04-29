@@ -65,3 +65,9 @@ export function favourite(post: RequestWithData, id: number): Promise<Status> {
     return response.data as Status;
   });
 }
+
+export function unfavourite(post: RequestWithData, id: number): Promise<Status> {
+  return post(`/api/v1/statuses/${id}/unfavourite`).then((response) => {
+    return response.data as Status;
+  });
+}
