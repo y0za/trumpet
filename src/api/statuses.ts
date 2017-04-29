@@ -28,3 +28,9 @@ export function getRebloggedBy(get: Request, id: number, params?: RangeParams): 
     return response.data as Account[];
   });
 }
+
+export function getFavouritedBy(get: Request, id: number, params?: RangeParams): Promise<Account[]> {
+  return get(`/api/v1/statuses/${id}/favourited_by`, { params }).then((response) => {
+    return response.data as Account[];
+  });
+}
