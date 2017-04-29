@@ -71,3 +71,9 @@ export function unfavourite(post: RequestWithData, id: number): Promise<Status> 
     return response.data as Status;
   });
 }
+
+export function getTimelineHome(get: Request, params?: RangeParams): Promise<Status[]> {
+  return get(`/api/v1/statuses/timelines/home`, { params }).then((response) => {
+    return response.data as Status[];
+  });
+}
