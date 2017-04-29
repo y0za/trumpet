@@ -1,5 +1,6 @@
 import { Request } from './index';
-import { Card, Context, Status } from './entities';
+import { Account, Card, Context, Status } from './entities';
+import { RangeParams } from './params';
 
 export function getStatus(get: Request, id: number): Promise<Status> {
   return get(`/api/v1/statuses/${id}`).then((response) => {
@@ -19,5 +20,11 @@ export function getStatusCard(get: Request, id: number): Promise<Card | null> {
       return null;
     }
     return response.data as Card;
+  });
+}
+
+export function getRebloggedBy(get: Request, id: number, params?: RangeParams): Promise<Account[]> {
+  return get(`/api/v1/statuses/${id}/reblogged_by`, { params }).then((response) => {
+    return response.data as Account[];
   });
 }
