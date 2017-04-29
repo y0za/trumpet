@@ -47,3 +47,9 @@ export function deleteStatus(deleteRequest: Request, id: number): Promise<void> 
     return;
   });
 }
+
+export function reblog(post: RequestWithData, id: number): Promise<Status> {
+  return post(`/api/v1/statuses/${id}/reblog`).then((response) => {
+    return response.data as Status;
+  });
+}
