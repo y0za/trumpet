@@ -30,6 +30,11 @@ export interface Attachment {
   text_url: string;
 }
 
+export interface Context {
+  ancestors: Status[];
+  descendants: Status[];
+}
+
 export interface Mention {
   url: string;
   username: string;
