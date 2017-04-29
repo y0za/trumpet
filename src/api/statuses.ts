@@ -1,6 +1,7 @@
-import { Request } from './index';
+import { Request, RequestWithData } from './index';
 import { Account, Card, Context, Status } from './entities';
 import { RangeParams } from './params';
+import { Toot } from './form-data';
 
 export function getStatus(get: Request, id: number): Promise<Status> {
   return get(`/api/v1/statuses/${id}`).then((response) => {
@@ -32,5 +33,11 @@ export function getRebloggedBy(get: Request, id: number, params?: RangeParams): 
 export function getFavouritedBy(get: Request, id: number, params?: RangeParams): Promise<Account[]> {
   return get(`/api/v1/statuses/${id}/favourited_by`, { params }).then((response) => {
     return response.data as Account[];
+  });
+}
+
+export function postStatus(post: RequestWithData, toot: Toot): Promise<Status> {
+  return post(`/api/v1/statuses`, toot).then((response) => {
+    return response.data as Status;
   });
 }
