@@ -41,3 +41,9 @@ export function postStatus(post: RequestWithData, toot: Toot): Promise<Status> {
     return response.data as Status;
   });
 }
+
+export function deleteStatus(deleteRequest: Request, id: number): Promise<void> {
+  return deleteRequest(`/api/v1/statuses/${id}`).then((response) => {
+    return;
+  });
+}
