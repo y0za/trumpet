@@ -21,3 +21,7 @@ export interface StatusesParams extends RangeParams {
   only_media?: boolean;
   exclude_replies?: boolean;
 }
+
+export interface TimelineParams extends RangeParams {
+  local?: boolean;
+}

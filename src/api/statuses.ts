@@ -1,7 +1,8 @@
 import { Request, RequestWithData } from './index';
 import { Account, Card, Context, Status } from './entities';
-import { RangeParams } from './params';
+import { RangeParams, TimelineParams } from './params';
 import { Toot } from './form-data';
+import { convertTimelineParams } from './helpers';
 
 export function getStatus(get: Request, id: number): Promise<Status> {
   return get(`/api/v1/statuses/${id}`).then((response) => {
@@ -74,6 +75,13 @@ export function unfavourite(post: RequestWithData, id: number): Promise<Status> 
 
 export function getTimelineHome(get: Request, params?: RangeParams): Promise<Status[]> {
   return get(`/api/v1/statuses/timelines/home`, { params }).then((response) => {
+    return response.data as Status[];
+  });
+}
+
+export function getTimelinePublic(get: Request, params?: TimelineParams): Promise<Status[]> {
+  const realParams = convertTimelineParams(params);
+  return get(`/api/v1/statuses/timelines/public`, { params: realParams }).then((response) => {
     return response.data as Status[];
   });
 }
