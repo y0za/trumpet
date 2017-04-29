@@ -30,6 +30,13 @@ export interface Attachment {
   text_url: string;
 }
 
+export interface Card {
+  url: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
 export interface Context {
   ancestors: Status[];
   descendants: Status[];
