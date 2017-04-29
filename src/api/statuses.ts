@@ -53,3 +53,9 @@ export function reblog(post: RequestWithData, id: number): Promise<Status> {
     return response.data as Status;
   });
 }
+
+export function unreblog(post: RequestWithData, id: number): Promise<Status> {
+  return post(`/api/v1/statuses/${id}/unreblog`).then((response) => {
+    return response.data as Status;
+  });
+}
