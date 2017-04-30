@@ -11,6 +11,7 @@ import * as instance from './instance';
 import * as media from './media';
 import * as mutes from './mutes';
 import * as notifications from './notifications';
+import * as reports from './reports';
 import * as statuses from './statuses';
 
 export class Api {
@@ -176,6 +177,14 @@ export class Api {
 
   clearNotifications(): Promise<void> {
     return notifications.clearNotifications(this.post);
+  }
+
+  getReports(): Promise<e.Report[]> {
+    return reports.getReports(this.get);
+  }
+
+  report(reportContent: fd.ReportContent): Promise<e.Report> {
+    return reports.report(this.post, reportContent);
   }
 
   getStatus(id: number): Promise<e.Status> {
