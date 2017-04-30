@@ -10,6 +10,7 @@ import * as follows from './follows';
 import * as instance from './instance';
 import * as media from './media';
 import * as mutes from './mutes';
+import * as notifications from './notifications';
 import * as statuses from './statuses';
 
 export class Api {
@@ -163,6 +164,18 @@ export class Api {
 
   getMutes(params?: p.RangeParams): Promise<e.Account[]> {
     return mutes.getMutes(this.get, params);
+  }
+
+  getNotifications(params?: p.RangeParams): Promise<e.Notification[]> {
+    return notifications.getNotifications(this.get, params);
+  }
+
+  getNotification(id: number): Promise<e.Notification> {
+    return notifications.getNotification(this.get, id);
+  }
+
+  clearNotifications(): Promise<void> {
+    return notifications.clearNotifications(this.post);
   }
 
   getStatus(id: number): Promise<e.Status> {
