@@ -1,4 +1,4 @@
-import { Request } from './index';
+import { Request, RequestWithData } from './index';
 import { Account } from './entities';
 import { RangeParams } from './params';
 
@@ -8,3 +8,8 @@ export function getFollowRequests(get: Request, params?: RangeParams): Promise<A
   });
 }
 
+export function authorizeFollowRequest(post: RequestWithData, id: number): Promise<void> {
+  return post(`/api/v1/follow_requests/${id}/authorize`).then((response) => {
+    return;
+  });
+}
