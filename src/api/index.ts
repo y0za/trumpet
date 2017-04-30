@@ -1,9 +1,9 @@
 import axios, { AxiosRequestConfig, AxiosInstance, AxiosResponse } from 'axios';
 import * as e from './entities';
 import * as p from './params';
-import * as fd from './form-data'
-import * as accounts from './accounts'
-import * as statuses from './statuses'
+import * as fd from './form-data';
+import * as accounts from './accounts';
+import * as statuses from './statuses';
 
 export class Api {
   private baseConfig: AxiosRequestConfig;
@@ -17,7 +17,7 @@ export class Api {
       baseURL: baseUrl,
       responseType: 'json'
     };
-    this.client = axios.create(this.baseConfig)
+    this.client = axios.create(this.baseConfig);
   }
 
   async authenticate(clientId: string, clientSecret: string, username: string, password: string): Promise<string> {
@@ -67,59 +67,59 @@ export class Api {
   }
 
   getAccount(id: number): Promise<e.Account> {
-    return accounts.getAccount(this.get, id)
+    return accounts.getAccount(this.get, id);
   }
 
   getCurrentUser(): Promise<e.Account> {
-    return accounts.getCurrentUser(this.get)
+    return accounts.getCurrentUser(this.get);
   }
 
   updateCurrentUser(profile: fd.Profile): Promise<e.Account> {
-    return accounts.updateCurrentUser(this.patch, profile)
+    return accounts.updateCurrentUser(this.patch, profile);
   }
 
   getAccountFollowers(id: number, params?: p.RangeParams): Promise<e.Account[]> {
-    return accounts.getAccountFollowers(this.get, id, params)
+    return accounts.getAccountFollowers(this.get, id, params);
   }
 
   getAccountFollowing(id: number, params?: p.RangeParams): Promise<e.Account[]> {
-    return accounts.getAccountFollowing(this.get, id, params)
+    return accounts.getAccountFollowing(this.get, id, params);
   }
 
   getAccountStatuses(id: number, params?: p.StatusesParams): Promise<e.Status[]> {
-    return accounts.getAccountStatuses(this.get, id, params)
+    return accounts.getAccountStatuses(this.get, id, params);
   }
 
   followAccount(id: number): Promise<e.Relationship> {
-    return accounts.followAccount(this.post, id)
+    return accounts.followAccount(this.post, id);
   }
 
   unfollowAccount(id: number): Promise<e.Relationship> {
-    return accounts.unfollowAccount(this.post, id)
+    return accounts.unfollowAccount(this.post, id);
   }
 
   blockAccount(id: number): Promise<e.Relationship> {
-    return accounts.blockAccount(this.post, id)
+    return accounts.blockAccount(this.post, id);
   }
 
   unblockAccount(id: number): Promise<e.Relationship> {
-    return accounts.blockAccount(this.post, id)
+    return accounts.blockAccount(this.post, id);
   }
 
   muteAccount(id: number): Promise<e.Relationship> {
-    return accounts.muteAccount(this.post, id)
+    return accounts.muteAccount(this.post, id);
   }
 
   unmuteAccount(id: number): Promise<e.Relationship> {
-    return accounts.unmuteAccount(this.post, id)
+    return accounts.unmuteAccount(this.post, id);
   }
 
   getAccountRelationships(params?: p.RelationshipsParams): Promise<e.Relationship[]> {
-    return accounts.getAccountRelationships(this.get, params)
+    return accounts.getAccountRelationships(this.get, params);
   }
 
   searchAccounts(params?: p.SearchAccountsParams): Promise<e.Account[]> {
-    return accounts.searchAccounts(this.get, params)
+    return accounts.searchAccounts(this.get, params);
   }
 
   getStatus(id: number): Promise<e.Status> {
