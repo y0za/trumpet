@@ -56,6 +56,14 @@ export interface Mention {
   id: number;
 }
 
+export interface Notification {
+  id: number;
+  type: 'mention' | 'reblog' | 'favourite' | 'follow';
+  created_at: string;
+  account: Account;
+  status?: Status;
+}
+
 export interface Relationship {
   id: number;
   following: boolean;
