@@ -7,6 +7,7 @@ import * as blocks from './blocks';
 import * as favourites from './favourites';
 import * as followRequests from './follow-requests';
 import * as follows from './follows';
+import * as media from './media';
 import * as statuses from './statuses';
 
 export class Api {
@@ -148,6 +149,10 @@ export class Api {
 
   followRemoteUser(uri: string): Promise<e.Account> {
     return follows.followRemoteUser(this.post, uri);
+  }
+
+  uploadMedia(file: File): Promise<e.Attachment> {
+    return media.uploadMedia(this.post, file);
   }
 
   getStatus(id: number): Promise<e.Status> {
