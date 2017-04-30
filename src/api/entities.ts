@@ -73,6 +73,11 @@ export interface Relationship {
   requested: boolean;
 }
 
+export interface Report {
+  id: number;
+  action_taken: boolean;
+}
+
 export interface Status {
   id: number;
   uri: string;
