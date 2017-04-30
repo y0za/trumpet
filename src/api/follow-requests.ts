@@ -13,3 +13,9 @@ export function authorizeFollowRequest(post: RequestWithData, id: number): Promi
     return;
   });
 }
+
+export function rejectFollowRequest(post: RequestWithData, id: number): Promise<void> {
+  return post(`/api/v1/follow_requests/${id}/reject`).then((response) => {
+    return;
+  });
+}
