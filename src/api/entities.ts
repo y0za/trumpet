@@ -78,6 +78,12 @@ export interface Report {
   action_taken: boolean;
 }
 
+export interface Results {
+  accounts: Account[];
+  statuses: Status[];
+  hashtags: string[];
+}
+
 export interface Status {
   id: number;
   uri: string;
