@@ -12,6 +12,7 @@ import * as media from './media';
 import * as mutes from './mutes';
 import * as notifications from './notifications';
 import * as reports from './reports';
+import * as search from './search';
 import * as statuses from './statuses';
 
 export class Api {
@@ -185,6 +186,10 @@ export class Api {
 
   report(reportContent: fd.ReportContent): Promise<e.Report> {
     return reports.report(this.post, reportContent);
+  }
+
+  search(params: p.SearchParams): Promise<e.Results> {
+    return search.search(this.get, params);
   }
 
   getStatus(id: number): Promise<e.Status> {
