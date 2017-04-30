@@ -9,6 +9,7 @@ import * as followRequests from './follow-requests';
 import * as follows from './follows';
 import * as instance from './instance';
 import * as media from './media';
+import * as mutes from './mutes';
 import * as statuses from './statuses';
 
 export class Api {
@@ -158,6 +159,10 @@ export class Api {
 
   uploadMedia(file: File): Promise<e.Attachment> {
     return media.uploadMedia(this.post, file);
+  }
+
+  getMutes(params?: p.RangeParams): Promise<e.Account[]> {
+    return mutes.getMutes(this.get, params);
   }
 
   getStatus(id: number): Promise<e.Status> {
