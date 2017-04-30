@@ -4,6 +4,7 @@ import * as p from './params';
 import * as fd from './form-data';
 import * as accounts from './accounts';
 import * as blocks from './blocks';
+import * as favourites from './favourites';
 import * as statuses from './statuses';
 
 export class Api {
@@ -125,6 +126,10 @@ export class Api {
 
   getBlocks(params?: p.RangeParams): Promise<e.Account[]> {
     return blocks.getBlocks(this.get, params);
+  }
+
+  getFavourites(params?: p.RangeParams): Promise<e.Status[]> {
+    return favourites.getFavourites(this.get, params);
   }
 
   getStatus(id: number): Promise<e.Status> {
