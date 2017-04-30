@@ -5,6 +5,7 @@ import * as fd from './form-data';
 import * as accounts from './accounts';
 import * as blocks from './blocks';
 import * as favourites from './favourites';
+import * as followRequests from './follow-requests';
 import * as statuses from './statuses';
 
 export class Api {
@@ -130,6 +131,18 @@ export class Api {
 
   getFavourites(params?: p.RangeParams): Promise<e.Status[]> {
     return favourites.getFavourites(this.get, params);
+  }
+
+  getFollowRequests(params?: p.RangeParams): Promise<e.Account[]> {
+    return followRequests.getFollowRequests(this.get, params);
+  }
+
+  authorizeFollowRequest(id: number): Promise<void> {
+    return followRequests.authorizeFollowRequest(this.post, id);
+  }
+
+  rejectFollowRequest(id: number): Promise<void> {
+    return followRequests.rejectFollowRequest(this.post, id);
   }
 
   getStatus(id: number): Promise<e.Status> {
