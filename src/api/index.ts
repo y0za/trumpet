@@ -6,6 +6,7 @@ import * as accounts from './accounts';
 import * as blocks from './blocks';
 import * as favourites from './favourites';
 import * as followRequests from './follow-requests';
+import * as follows from './follows';
 import * as statuses from './statuses';
 
 export class Api {
@@ -143,6 +144,10 @@ export class Api {
 
   rejectFollowRequest(id: number): Promise<void> {
     return followRequests.rejectFollowRequest(this.post, id);
+  }
+
+  followRemoteUser(uri: string): Promise<e.Account> {
+    return follows.followRemoteUser(this.post, uri);
   }
 
   getStatus(id: number): Promise<e.Status> {
