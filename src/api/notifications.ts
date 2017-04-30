@@ -7,3 +7,9 @@ export function getNotifications(get: Request, params?: RangeParams): Promise<No
     return response.data as Notification[];
   });
 }
+
+export function getNotification(get: Request, id: number): Promise<Notification> {
+  return get(`/api/v1/notifications/${id}`).then((response) => {
+    return response.data as Notification;
+  });
+}
