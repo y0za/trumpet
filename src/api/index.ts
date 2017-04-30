@@ -3,6 +3,7 @@ import * as e from './entities';
 import * as p from './params';
 import * as fd from './form-data'
 import * as accounts from './accounts'
+import * as statuses from './statuses'
 
 export class Api {
   private baseConfig: AxiosRequestConfig;
@@ -119,6 +120,62 @@ export class Api {
 
   searchAccounts(params?: p.SearchAccountsParams): Promise<e.Account[]> {
     return accounts.searchAccounts(this.get, params)
+  }
+
+  getStatus(id: number): Promise<e.Status> {
+    return statuses.getStatus(this.get, id);
+  }
+
+  getStatusContext(id: number): Promise<e.Context> {
+    return statuses.getStatusContext(this.get, id);
+  }
+
+  getStatusCard(id: number): Promise<e.Card | null> {
+    return statuses.getStatusCard(this.get, id);
+  }
+
+  getRebloggedBy(id: number, params?: p.RangeParams): Promise<e.Account[]> {
+    return statuses.getRebloggedBy(this.get, id, params);
+  }
+
+  getFavouritedBy(id: number, params?: p.RangeParams): Promise<e.Account[]> {
+    return statuses.getFavouritedBy(this.get, id, params);
+  }
+
+  postStatus(post: RequestWithData, toot: fd.Toot): Promise<e.Status> {
+    return statuses.postStatus(this.post, toot);
+  }
+
+  deleteStatus(id: number): Promise<void> {
+    return statuses.deleteStatus(this.delete, id);
+  }
+
+  reblog(id: number): Promise<e.Status> {
+    return statuses.reblog(this.post, id);
+  }
+
+  unreblog(id: number): Promise<e.Status> {
+    return statuses.unreblog(this.post, id);
+  }
+
+  favourite(id: number): Promise<e.Status> {
+    return statuses.favourite(this.post, id);
+  }
+
+  unfavourite(id: number): Promise<e.Status> {
+    return statuses.unfavourite(this.post, id);
+  }
+
+  getTimelineHome(params?: p.RangeParams): Promise<e.Status[]> {
+    return statuses.getTimelineHome(this.get, params);
+  }
+
+  getTimelinePublic(params?: p.TimelineParams): Promise<e.Status[]> {
+    return statuses.getTimelinePublic(this.get, params);
+  }
+
+  getTimelineHashtag(tag: string, params?: p.TimelineParams): Promise<e.Status[]> {
+    return statuses.getTimelineHashtag(this.get, tag, params);
   }
 }
 
