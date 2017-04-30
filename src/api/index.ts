@@ -3,6 +3,7 @@ import * as e from './entities';
 import * as p from './params';
 import * as fd from './form-data';
 import * as accounts from './accounts';
+import * as blocks from './blocks';
 import * as statuses from './statuses';
 
 export class Api {
@@ -120,6 +121,10 @@ export class Api {
 
   searchAccounts(params?: p.SearchAccountsParams): Promise<e.Account[]> {
     return accounts.searchAccounts(this.get, params);
+  }
+
+  getBlocks(params?: p.RangeParams): Promise<e.Account[]> {
+    return blocks.getBlocks(this.get, params);
   }
 
   getStatus(id: number): Promise<e.Status> {
