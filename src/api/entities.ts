@@ -42,6 +42,13 @@ export interface Context {
   descendants: Status[];
 }
 
+export interface Instance {
+  uri: string;
+  title: string;
+  description: string;
+  email: string;
+}
+
 export interface Mention {
   url: string;
   username: string;
