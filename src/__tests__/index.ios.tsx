@@ -7,7 +7,5 @@ import { App } from '../app-ios';
 import { create } from 'react-test-renderer';
 
 it('renders correctly', () => {
-  create(
-    <App />
-  );
+  create(<App />);
 });

@@ -1,7 +1,7 @@
-import { Api } from '../../api'
+import { Api } from '../../api';
 
 describe('Api class', () => {
-  const baseUrl = 'http://localhost'
+  const baseUrl = 'http://localhost';
   let api = new Api(baseUrl);
 
   beforeEach(() => {

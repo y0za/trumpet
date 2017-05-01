@@ -2,7 +2,7 @@ import * as React from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native';
 
 export class App extends React.Component<{}, {}> {
@@ -28,5 +28,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  }
+  },
 });

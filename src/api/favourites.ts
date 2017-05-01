@@ -7,4 +7,3 @@ export function getFavourites(get: Request, params?: RangeParams): Promise<Statu
     return response.data as Status[];
   });
 }
-

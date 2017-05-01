@@ -22,22 +22,22 @@ export class Api {
   constructor(baseUrl: string) {
     this.baseConfig = {
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
       },
       baseURL: baseUrl,
-      responseType: 'json'
+      responseType: 'json',
     };
     this.client = axios.create(this.baseConfig);
   }
 
   async authenticate(clientId: string, clientSecret: string, username: string, password: string): Promise<string> {
     const response = await this.client.post('/oauth/token', {
-      'client_id': clientId,
-      'client_secret': clientSecret,
-      'grant_type': 'password',
-      'username': username,
-      'password': password,
-      'scope': 'read write follow'
+      client_id: clientId,
+      client_secret: clientSecret,
+      grant_type: 'password',
+      username,
+      password,
+      scope: 'read write follow',
     });
 
     const accessToken = response.data['access_token'] as string;
@@ -249,10 +249,6 @@ export class Api {
   }
 }
 
-export interface Request {
-  (path: string, config?: AxiosRequestConfig): Promise<AxiosResponse>;
-}
+export type Request = (path: string, config?: AxiosRequestConfig) => Promise<AxiosResponse>;
 
-export interface RequestWithData {
-  (path: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse>;
-}
+export type RequestWithData = (path: string, data?: any, config?: AxiosRequestConfig) => Promise<AxiosResponse>;

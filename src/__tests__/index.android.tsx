@@ -7,7 +7,5 @@ import { App } from '../app-android';
 import { create } from 'react-test-renderer';
 
 it('renders correctly', () => {
-  create(
-    <App />
-  );
+  create(<App />);
 });
