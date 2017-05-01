@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start --skipflow",
     "test": "yarn build && jest",
+    "lint": "tslint --project tsconfig.json --type-check",
     "build": "tsc",
     "build:watch": "tsc --watch"
   },
