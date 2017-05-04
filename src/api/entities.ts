@@ -23,7 +23,7 @@ export interface Application {
 
 export interface Attachment {
   id: number;
-  type: string;
+  type: 'image' | 'video' | 'gifv';
   url: string;
   remote_url: string;
   preview_url: string;
