@@ -13,7 +13,10 @@
   },
   "jest": {
     "preset": "react-native",
-    "testRegex": "dist/__tests__/.*.jsx?$"
+    "testRegex": "dist/__tests__/.*.jsx?$",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|@shoutem|react-clone-referenced-element|native-base-shoutem-theme)"
+    ]
   },
   "dependencies": {
     "native-base": "^2.1.3",
