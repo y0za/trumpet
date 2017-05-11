@@ -54,7 +54,7 @@ const styles = {
       height,
       flexDirection: 'column',
       justifyContent: 'center',
-    }
+    };
   },
   title: {
     fontSize: 30,
