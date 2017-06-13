@@ -9,9 +9,32 @@ import {
   Text,
   View,
 } from 'native-base';
-import { Dimensions } from 'react-native';
+import {
+  Dimensions,
+  Linking
+} from 'react-native';
 
-export class App extends React.Component<{}, {}> {
+interface State {
+  domain: string;
+}
+
+export class App extends React.Component<{}, State> {
+  constructor() {
+    super();
+    this.state = {
+      domain: ''
+    };
+  }
+
+  openURL = () => {
+    const url = 'https://' + this.state.domain;
+    Linking
+      .openURL(url)
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   render(): JSX.Element {
     const {
       width,
@@ -29,9 +52,16 @@ export class App extends React.Component<{}, {}> {
               <Form>
                 <Text style={styles.formDescription}>Input a instance domain</Text>
                 <Item>
-                  <Input placeholder="mastodon.social" />
+                  <Input
+                    placeholder="mastodon.social"
+                    onChangeText={(text) => this.setState({ domain: text })}
+                  />
                 </Item>
-                <Button block primary style={styles.loginButton}>
+                <Button
+                  block primary
+                  style={styles.loginButton}
+                  onPress={this.openURL}
+                >
                   <Text style={styles.loginButtonText}> Login </Text>
                 </Button>
               </Form>
