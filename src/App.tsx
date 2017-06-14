@@ -11,7 +11,7 @@ import {
 } from 'native-base';
 import {
   Dimensions,
-  Linking
+  Linking,
 } from 'react-native';
 
 interface State {
@@ -22,7 +22,7 @@ export class App extends React.Component<{}, State> {
   constructor() {
     super();
     this.state = {
-      domain: ''
+      domain: '',
     };
   }
 
